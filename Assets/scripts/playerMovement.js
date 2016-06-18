@@ -12,7 +12,6 @@ private var lastDirection : boolean = true; // true = right; false = left;
 private var jumpsLeft : float;
 
 function Update () {
-	Debug.Log(jumpsLeft);
 	if(jumpsLeft > 0){
 		if (Input.GetKeyDown(KeyCode.Space)){
 			thisPlayerRigid.velocity.y = JUMP_FORCE;
