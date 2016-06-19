@@ -44,10 +44,10 @@ function OnCollisionExit2D(Collider: Collision2D){
 }
 
 function handleAnimations(){
-	if((Input.GetAxis('Horizontal') > 0 || Input.GetAxis('Horizontal') < 0) && isGrounded)
-		animator.SetBool('isWalking', true);
+	if((Input.GetAxis('Horizontal') > 0 || Input.GetAxis('Horizontal') < 0))
+		animator.SetBool('isMoving', true);
 	else
-		animator.SetBool('isWalking', false);
+		animator.SetBool('isMoving', false);
 		
 	if (!isGrounded)
 		animator.SetBool('inAir', true);
