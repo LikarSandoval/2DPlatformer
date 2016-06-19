@@ -3,6 +3,8 @@
 var thisPlayerRigid : Rigidbody2D;
 var thisPlayerTransform : Transform;
 var animator : Animator;
+var jumpCloudPos : Transform;
+var jumpCloudPrefab : GameObject;
 private var isGrounded : boolean;
 private final var WALK_SPEED : float = 2f;
 private final var JUMP_FORCE : float = 4f;
@@ -14,6 +16,9 @@ private var jumpsLeft : float;
 function Update () {
 	if(jumpsLeft > 0){
 		if (Input.GetKeyDown(KeyCode.Space)){
+			if (jumpsLeft == 1)
+				Instantiate(jumpCloudPrefab, jumpCloudPos.position, Quaternion.identity);
+				
 			thisPlayerRigid.velocity.y = JUMP_FORCE;
 			jumpsLeft --;
 		}

@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\scripts\jumpcloud.js" />
      <Compile Include="Assets\scripts\playerMovement.js" />
      <None Include="Assets\graphics\Spritesheet\spritesheet_tiles.xml" />
      <None Include="Assets\graphics\Spritesheet\spritesheet_items.xml" />
