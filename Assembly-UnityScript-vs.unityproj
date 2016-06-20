@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\VineBehaviour.js" />
      <Compile Include="Assets\scripts\enemy\ground\goombaStomp.js" />
      <Compile Include="Assets\scripts\enemy\ground\movement.js" />
      <Compile Include="Assets\scripts\player\jumpcloud.js" />

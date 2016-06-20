@@ -12,8 +12,6 @@ private final var MAX_JUMPS : float = 2f;
 private var facing : boolean = true; // true = right; false = left;
 private var lastDirection : boolean = true; // true = right; false = left;
 private var jumpsLeft : float;
-private var canClimb = false;
-private final var CLIMB_SPEED : float = 0.05f; // has to be small because its just increasing the y-coordinate of the character every update
 
 function Update () {
 	if(jumpsLeft > 0){
@@ -31,16 +29,6 @@ function Update () {
 		
 	handleAnimations();
 	updateDirection();
-	
-	if(canClimb) {
-		thisPlayerRigid.gravityScale = 0;
-		if(Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.UpArrow))
-			thisPlayerRigid.position.y += CLIMB_SPEED; 
-		if(Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.DownArrow))
-			thisPlayerRigid.position.y -= CLIMB_SPEED; 
-	} else {
-		thisPlayerRigid.gravityScale = 1;
-	}
 }
 
 function OnCollisionEnter2D(Collider: Collision2D) {
@@ -48,20 +36,14 @@ function OnCollisionEnter2D(Collider: Collision2D) {
 		isGrounded = true;
 		jumpsLeft = MAX_JUMPS;
 	}
-
-	if (Collider.gameObject.tag.Equals("vine")) {
-		canClimb = true;
-	}
 }
 
 function OnCollisionExit2D(Collider: Collision2D){
 	if (Collider.gameObject.tag.Equals("ground"))
 		isGrounded = false;
-		
-	if (Collider.gameObject.tag.Equals("vine")) {
-		canClimb = false;
-	}
 }
+
+
 
 function handleAnimations(){
 	if((Input.GetAxis('Horizontal') > 0 || Input.GetAxis('Horizontal') < 0))
