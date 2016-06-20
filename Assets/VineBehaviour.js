@@ -19,7 +19,6 @@ function OnTriggerExit2D(collider : Collider2D){
 }
      
 function Update () {
-	print(canClimb);
 	if(canClimb) {
 		playerObject.GetComponentInParent(Rigidbody2D).gravityScale = 0;
 		if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) {
