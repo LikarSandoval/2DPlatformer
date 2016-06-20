@@ -12,6 +12,7 @@ private final var MAX_JUMPS : float = 2f;
 private var facing : boolean = true; // true = right; false = left;
 private var lastDirection : boolean = true; // true = right; false = left;
 private var jumpsLeft : float;
+private var lives : int = 2;
 
 function Update () {
 	if(jumpsLeft > 0){
@@ -21,8 +22,7 @@ function Update () {
 				
 			thisPlayerRigid.velocity.y = JUMP_FORCE;
 			jumpsLeft --;
-		}
-			
+		}	
 	}
 	
 	thisPlayerRigid.velocity.x = Input.GetAxis('Horizontal') * WALK_SPEED;
@@ -36,14 +36,17 @@ function OnCollisionEnter2D(Collider: Collision2D) {
 		isGrounded = true;
 		jumpsLeft = MAX_JUMPS;
 	}
+	
+	if (Collider.gameObject.tag.Equals("enemy") && lives > 0){
+		animator.SetTrigger('hit');
+		lives --;
+	}
 }
 
 function OnCollisionExit2D(Collider: Collision2D){
 	if (Collider.gameObject.tag.Equals("ground"))
 		isGrounded = false;
 }
-
-
 
 function handleAnimations(){
 	if((Input.GetAxis('Horizontal') > 0 || Input.GetAxis('Horizontal') < 0))
@@ -68,4 +71,8 @@ function updateDirection(){
 		thisPlayerTransform.localScale.x = thisPlayerTransform.localScale.x * -1;
 		facing = !facing;
 	}
+}
+
+function changeColliderState(b : boolean){
+	GetComponent.<Collider>().enabled = b;
 }
