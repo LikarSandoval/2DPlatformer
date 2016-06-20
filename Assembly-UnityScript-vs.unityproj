@@ -46,6 +46,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\scripts\enemy\ground\goombaStomp.js" />
+     <Compile Include="Assets\scripts\enemy\ground\movement.js" />
      <Compile Include="Assets\scripts\player\jumpcloud.js" />
      <Compile Include="Assets\scripts\player\playerMovement.js" />
      <None Include="Assets\graphics\Spritesheet\spritesheet_tiles.xml" />
