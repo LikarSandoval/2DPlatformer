@@ -74,8 +74,11 @@ function updateDirection(){
 }
 
 function changeColliderState(bool : int){ // 1 = true 0 = false
-	if (bool == 1)
+	if (bool == 1){
 		Physics2D.IgnoreLayerCollision(9, 10, true);
+		GetComponent.<Collider2D>().enabled = false;
+		GetComponent.<Collider2D>().enabled = true;
+	}
 	else
 		Physics2D.IgnoreLayerCollision(9, 10, false);
 }
