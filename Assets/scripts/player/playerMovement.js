@@ -32,12 +32,12 @@ function Update () {
 }
 
 function OnCollisionEnter2D(Collider: Collision2D) {
-	if (Collider.gameObject.tag.Equals("ground")){
+	if (Collider.collider.gameObject.tag.Equals("ground")){
 		isGrounded = true;
 		jumpsLeft = MAX_JUMPS;
 	}
 	
-	if (Collider.gameObject.tag.Equals("enemy") && lives > 0){
+	if (Collider.collider.gameObject.tag.Equals("enemy") && lives > 0){
 		animator.SetTrigger('hit');
 		lives --;
 	}
@@ -73,6 +73,9 @@ function updateDirection(){
 	}
 }
 
-function changeColliderState(b : boolean){
-	GetComponent.<Collider>().enabled = b;
+function changeColliderState(bool : int){ // 1 = true 0 = false
+	if (bool == 1)
+		Physics2D.IgnoreLayerCollision(9, 10, true);
+	else
+		Physics2D.IgnoreLayerCollision(9, 10, false);
 }

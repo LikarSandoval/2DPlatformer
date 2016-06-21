@@ -1,10 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\enemy\ground\movement.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\scripts\enemy\ground\goombaStomp.js">
     <Files>
-      <File FileName="Assets\scripts\player\playerMovement.js" Line="40" Column="60" />
-      <File FileName="Assets\scripts\enemy\ground\goombaStomp.js" Line="10" Column="1" />
-      <File FileName="Assets\scripts\enemy\ground\movement.js" Line="10" Column="1" />
+      <File FileName="Assets\scripts\player\playerMovement.js" Line="35" Column="56" />
+      <File FileName="Assets\scripts\enemy\ground\goombaStomp.js" Line="16" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
